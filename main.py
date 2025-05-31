@@ -1,1 +1,1 @@
-from stats import word_count
+from stats import main
