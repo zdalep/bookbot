@@ -2,6 +2,7 @@ def word_count(text):
     split_contents = text.split()
     count = len(split_contents)
     return count
+
 def character_count(text):
     characters = {}
     lowcase = text.lower()
@@ -11,11 +12,13 @@ def character_count(text):
         else:
             characters[character] += 1
     return characters
-def main():
-    with open("./books/frankenstein.txt")as f:
-        text = f.read()
-        num_words = word_count(text)
-        char_count = character_count(text)
-    print(f"{num_words} words found in the document")
-    print(char_count)
-main()
+def sort_list(dict):
+    results = []
+    for key, value in dict.items():
+        letter = {"char": key, "num": value}
+        if letter["char"].isalpha():
+            results.append(letter)
+    def sort_on(item):
+        return item["num"]
+    results.sort(reverse = True, key=sort_on)
+    return results
